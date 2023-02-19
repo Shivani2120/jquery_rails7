@@ -1,0 +1,30 @@
+
+
+<div class="container">
+<h1> Users </h1>
+    <table class="table border">
+        <thead>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Show</th>
+            <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.city %></td>
+                    <td><%= user.contact %></td>
+                    <td><%= link_to "edit", edit_user_path(user) %></td>
+                    <td><%= link_to "show", user_path(user) %></td>
+                    <td><%= button_to "destroy", user, method: :delete, data: { confirm: "Are you sure "} %></td>
+                </tr>  
+            <% end %>
+        </tbody>
+    </table>
+    <%= link_to "new user", new_user_path %>
+</div>    

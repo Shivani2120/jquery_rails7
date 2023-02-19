@@ -1,0 +1,2 @@
+module DashbourdsHelper
+end

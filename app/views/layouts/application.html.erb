@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DemoProject</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_import_module_tag "https://ga.jspm.io/npm:@fortawesome/fontawesome-free@6.1.1/js/all.js" %>
+
+    <style>
+       /* #loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        background: url(https://media.tenor.com/On7kvXhzml4AAAA/loading-gif.gif) 50 50% no-repeat rgb(15 10 10 /59%);
+       } */
+    </style>
+  </head>
+
+  <body>
+    <%= yield %>
+    <div id="loader"></div>
+  </body>
+</html>
