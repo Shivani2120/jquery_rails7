@@ -11,4 +11,11 @@ Rails.application.routes.draw do
       delete :bulk_delete_books
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :books
+      resources :users
+    end
+  end
 end
