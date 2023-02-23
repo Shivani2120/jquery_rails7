@@ -2,8 +2,8 @@ class Api::V1::BooksController < ApplicationController
     before_action :set_book, only: %i[ show update distroy]
 
     def index
-        @books = Book.all
-        render json: @books
+        books = Book.all
+        render json: books
     end
     
     def show
@@ -11,12 +11,12 @@ class Api::V1::BooksController < ApplicationController
     end
     
     def create
-        @book = Book.new(book_params)
+        book = Book.create!(book_params)
 
-        if @book.save
-            render json: @book, status: created, location: @book
+        if book.save
+            render json: book, status: created, location: @book
         else
-            render json: @book.errors, status: :unprocessable_entity
+            render json: book.errors, status: :unprocessable_entity
         end
     end
     
@@ -30,6 +30,7 @@ class Api::V1::BooksController < ApplicationController
 
     def destroy
        @book.destroy
+       render json: { message: 'Recipe deleted!' }
     end
 
     private

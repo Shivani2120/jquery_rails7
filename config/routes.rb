@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: "dashbourds#index"
+  get '/*path' => 'dashbourds#index'
   get "dashboard", to: "dashbourds#index"
   resources :users
   resources :books do
@@ -14,8 +15,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :books
       resources :users
+      get 'books/index'
+      post 'books/create'
+      get '/show/:id', to: 'books#show'
+      delete '/destroy/:id', to: 'books#destroy'
     end
   end
 end
